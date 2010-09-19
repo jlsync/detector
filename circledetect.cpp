@@ -1,3 +1,19 @@
+
+
+/*
+ * usageage:
+ *
+ * for just the numbers run
+ *   circledetect infile.jpg
+ *
+ * for the numbers and modified image run  
+ *   circledetect infile.jpg outfile.jpg
+ *
+ * for the numbers and modified image run and onscreen display
+ *    circledetect infile.jpg outfile.jpg blah
+ *
+ */
+
 #include "cv.h"
 #include "highgui.h"
 #include "math.h"
@@ -31,8 +47,11 @@ int main(int argc, char** argv)
 
         }
         if( argc == 3 ) {
+          cvSaveImage(argv[2] ,img);
+        }
+        if( argc == 4 ) {
           cvNamedWindow( "circles", 1 );
-          cvShowImage( "circles", gray );
+          cvShowImage( "circles", img );
           sleep(10);
         }
     }
